@@ -1,4 +1,4 @@
-# TunnelOverTerminal
+# Tunnel Over Terminal (ToT)
 Tunnel TCP or UDP data stream over a terminal session
 
 # Setup
