@@ -38,7 +38,7 @@ On remote host:
 3/ On source machine, modify the three Expect scripts (connect.exp ; remote-read.exp ; remote-write.exp) to let them connect to target machine automatically. Leave the last "send", "expect" and "interact" functions as is. Don't forget to "chmod +x" them.
 
 # Usage
-
+```
 usage: ToT.py [-h] [-s PORT_SOURCE] [-ip IP_DESTINATION] [-d PORT_DESTINATION]  
               [-f FORCE] [--clean CLEAN] [--stats STATS]  
 
@@ -54,21 +54,23 @@ optional arguments:
                         provide yes or no (default: no)  
   --clean CLEAN         provide brutal or no (default: no)  
   --stats STATS         provide yes or no (default: no)  
-
+```
 # Example
 
 Terminal 1 :  
+```
 **user@mylocalhost:~$** python ./ToT.py -s 8765 -ip 127.0.0.1 -d 22 --stats yes  
 Press CTRL-C to exit...  
 Traffic in tunnel (in HEX + Overhead)  
 Input bytes= 164 ; Output bytes= 0  
-
+```
 Terminal 2 :  
+```
 **user@mylocalhost:~$** ssh remoteuser@localhost -p 8765  
 cisco@localhost's password:  
 Welcome to Remote Host Server  
 
 Last login: Sat Aug 31 17:28:05 2019 from 10.60.2.100  
 **remoteuser@remotehost:~$**  
-
+```
 In this simple scenario, SSH connection will be encapsulated over ToT, whatever is in the middle (bastion hosts, telnet connection...).
