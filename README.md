@@ -59,18 +59,18 @@ optional arguments:
 
 Terminal 1 :  
 ```
-**user@mylocalhost:~$** python ./ToT.py -s 8765 -ip 127.0.0.1 -d 22 --stats yes  
+user@mylocalhost:~$ python ./ToT.py -s 8765 -ip 127.0.0.1 -d 22 --stats yes  
 Press CTRL-C to exit...  
 Traffic in tunnel (in HEX + Overhead)  
 Input bytes= 164 ; Output bytes= 0  
 ```
 Terminal 2 :  
 ```
-**user@mylocalhost:~$** ssh remoteuser@localhost -p 8765  
+user@mylocalhost:~$ ssh remoteuser@localhost -p 8765  
 cisco@localhost's password:  
 Welcome to Remote Host Server  
 
 Last login: Sat Aug 31 17:28:05 2019 from 10.60.2.100  
-**remoteuser@remotehost:~$**  
+remoteuser@remotehost:~$
 ```
 In this simple scenario, SSH connection will be encapsulated over ToT, whatever is in the middle (bastion hosts, telnet connection...).
