@@ -1,5 +1,5 @@
 # Tunnel Over Terminal (ToT)
-Tunnel TCP or UDP data stream over a terminal session
+Tunnel TCP data stream over a terminal session (UDP evaluated for an upcoming release)
 
 # Use cases
 Context : you have a terminal access to a remote linux box, but going through multiple bastion host which have custom prompt and would never allow whatever sort of tunneling
