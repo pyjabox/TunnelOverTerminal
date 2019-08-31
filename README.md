@@ -69,6 +69,7 @@ cisco@localhost's password:
 Welcome to Remote Host Server
 
 Last login: Sat Aug 31 17:28:05 2019 from 10.60.2.100
+
 **remoteuser@remotehost:~$**
 
 In this simple scenario, SSH connection will be encapsulated over ToT, whatever is in the middle (bastion hosts, telnet connection...).
