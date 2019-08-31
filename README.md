@@ -57,7 +57,7 @@ optional arguments:
 
 # Example
 
-Terminal 1 : 
+Terminal 1 :  
 **user@mylocalhost:~$** python ./ToT.py -s 8765 -ip 127.0.0.1 -d 22 --stats yes
 Press CTRL-C to exit...
 Traffic in tunnel (in HEX + Overhead)
