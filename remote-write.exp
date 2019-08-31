@@ -1,0 +1,8 @@
+#!/usr/bin/expect
+log_user 0
+spawn ssh cisco@10.0.0.1
+expect "assword:"
+send "cisco\r"
+expect "host"
+send "stdbuf -o0 xxd -r -p -c 1 > toNC\r"
+interact

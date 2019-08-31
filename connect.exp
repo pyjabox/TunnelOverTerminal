@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+set host [lindex $argv 0]
+set port [lindex $argv 1]
+log_user 0
+spawn ssh cisco@10.0.0.1
+expect "assword:"
+send "cisco\r"
+expect "host"
+send "cat toNC | netcat $host $port > fromNC\r"
+interact
