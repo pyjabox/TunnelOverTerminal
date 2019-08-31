@@ -39,21 +39,21 @@ On remote host:
 
 # Usage
 
-usage: ToT.py [-h] [-s PORT_SOURCE] [-ip IP_DESTINATION] [-d PORT_DESTINATION]
-              [-f FORCE] [--clean CLEAN] [--stats STATS]
+usage: ToT.py [-h] [-s PORT_SOURCE] [-ip IP_DESTINATION] [-d PORT_DESTINATION]  
+              [-f FORCE] [--clean CLEAN] [--stats STATS]  
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -s PORT_SOURCE, --port_source PORT_SOURCE
-                        provide an integer (default: 8765)
-  -ip IP_DESTINATION, --ip_destination IP_DESTINATION
-                        provide an ip (default: 127.0.0.1)
-  -d PORT_DESTINATION, --port_destination PORT_DESTINATION
-                        provide an integer (default: 22)
-  -f FORCE, --force FORCE
-                        provide yes or no (default: no)
-  --clean CLEAN         provide brutal or no (default: no)
-  --stats STATS         provide yes or no (default: no)
+optional arguments:  
+  -h, --help            show this help message and exit  
+  -s PORT_SOURCE, --port_source PORT_SOURCE  
+                        provide an integer (default: 8765)  
+  -ip IP_DESTINATION, --ip_destination IP_DESTINATION  
+                        provide an ip (default: 127.0.0.1)  
+  -d PORT_DESTINATION, --port_destination PORT_DESTINATION  
+                        provide an integer (default: 22)  
+  -f FORCE, --force FORCE  
+                        provide yes or no (default: no)  
+  --clean CLEAN         provide brutal or no (default: no)  
+  --stats STATS         provide yes or no (default: no)  
 
 # Example
 
