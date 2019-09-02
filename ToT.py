@@ -71,11 +71,18 @@ if checks.returncode==0 and params.force =="no":
     print "To bypass checks, add --force yes argument"
     exit()
 
+if params.stats =="yes":
+    checks2 = subprocess.Popen("echo test | pv 2> /dev/null 1> /dev/null", shell=True, stdin=None, stdout=None, stderr=None, preexec_fn=os.setsid)
+    checks2.wait()
+    if checks2.returncode!=0:
+        print "You seem to miss pv command. Install it if you need statistics. Else don't use statistics."
+        exit()
+
 proc1 = subprocess.Popen("while :;     do stdbuf -o0 xxd -p -c 1 < fromN > fromN-HEX; done", shell=True, preexec_fn=os.setsid)
 
 if params.stats == "yes":
-    proc2 = subprocess.Popen("cat fromN-HEX | tee debug-write.log | ./remote-write.exp > /dev/null", shell=True, preexec_fn=os.setsid)
-    proc3 = subprocess.Popen("./remote-read.exp | tee debug-read.log > fromNC-HEX", shell=True, preexec_fn=os.setsid)
+    proc2 = subprocess.Popen("cat fromN-HEX | pv -f | ./remote-write.exp > /dev/null", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setsid, universal_newlines=True)
+    proc3 = subprocess.Popen("./remote-read.exp | pv -f > fromNC-HEX", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setsid, universal_newlines=True)
 
 else:
     proc2 = subprocess.Popen("cat fromN-HEX | ./remote-write.exp > /dev/null", shell=True, preexec_fn=os.setsid)
@@ -90,14 +97,10 @@ print("Press CTRL-C to exit...")
 
 if params.stats == "yes":
     print("Traffic in tunnel (in HEX + Overhead)")
-    in_bytes=0
-    out_bytes=0
 while True:
     try:
         if params.stats == "yes":
-            in_bytes=os.path.getsize("debug-read.log")
-            out_bytes=os.path.getsize("debug-write.log")
-            stdout.write("\r\x1b[K"+"Input bytes= "+str(in_bytes)+" ; Output bytes= "+str(out_bytes))
+            stdout.write("\r\x1b[K"+"Output bytes = "+proc2.stderr.readline().split("[")[0]+"["+proc2.stderr.readline().split("[")[1]+"; Input bytes = "+proc3.stderr.readline().split("[")[0]+"["+proc3.stderr.readline().split("[")[1])
             stdout.flush()
         time.sleep(1)
         if proc1.poll() is not None:
@@ -120,6 +123,7 @@ while True:
             break
 
     except KeyboardInterrupt:
+        print "\r\nUser interrupt. Exiting..."
         break
 
 try:
