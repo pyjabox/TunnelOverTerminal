@@ -16,6 +16,7 @@ With ToT, you can :
 On local host:
 - Python 2.7.16
 - Standard Linux binaries (mkfifo, xxd, netcat, expect)
+- pv utility if you want statistics
 
 On bastion intermediate hosts:
 - whatever as long as information is carried in reliable way
