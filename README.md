@@ -2,10 +2,10 @@
 Tunnel TCP data stream over a terminal session (UDP evaluated for an upcoming release)
 
 # Use cases
-Context : you have a terminal access to a remote linux box, but going through multiple bastion host which have custom prompt and would never allow whatever sort of tunneling
+Context : you have a terminal access to a remote linux box, but going through multiple bastion hosts which have custom prompt and would never allow whatever sort of tunneling
 
 With ToT, you can :
-- Go through bastion hosts which prevent any kind of tunneling. As long as the connection can be done through a traditional Expect script and you land on terminal, you are good to go.
+- Go through bastion hosts which prevent any kind of tunneling. As long as the connection can be done through a traditional Expect script and you land on a terminal, you are good to go.
 
 - Do port redirection from remote network to a local port in local network over this tunnel. Thanks to that you can access web application, Java application, create a Reverse SSH connection...
 
